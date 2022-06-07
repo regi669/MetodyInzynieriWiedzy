@@ -1,36 +1,33 @@
 import numpy as np
 import math as m
-def srednia(list1):
+def srednia(lista):
 	sum = 0
-	for x in list1:
+	for x in lista:
 		sum += x
-	return x / len(list1)
+	return x / len(lista)
 
-def warjancja(list1):
-	mean_avg = srednia(list1)
+def warjancja(lista):
+	mean_avg = srednia(lista)
 	sum = 0
-	for x in list1:
+	for x in lista:
 		sum += pow((x-mean_avg),2)
-	return sum / len(list1)
+	return sum / len(lista)
 
-def odchylenie(list1):
-	return pow(warjancja(list1), 1/2)
+def odchylenie(lista):
+	return pow(warjancja(lista), 1/2)
 
 def srednia_matrix(lista):
-    ones = np.ones((len(lista),1))
-    return float(1/len(lista))*np.dot(np.array(lista),ones)[0]
+    return np.dot(np.array(lista), np.ones(len(lista))) / len(lista)
 
 def wariancja_matrix(lista):
-    srednia = srednia_matrix(lista)
-    ones = np.ones((1,len(lista)))*srednia
-    minus = np.array(lista) - ones
-    return float(1/len(lista))*np.dot(minus[0],minus[0].T)
+    lista_minus_srednia = np.array(lista) - srednia_matrix(lista)
+    return np.dot(lista_minus_srednia, lista_minus_srednia) / len(lista)
 
 def odchylenie_matrix(lista):
     return m.sqrt(wariancja_matrix(lista))
 
 
-lista = [5,5,5,5]
+lista = [5.,5.,5.,5.]
 print(srednia(lista))
 print(warjancja(lista))
 print(odchylenie(lista))

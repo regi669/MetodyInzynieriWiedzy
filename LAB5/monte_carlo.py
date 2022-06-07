@@ -35,7 +35,7 @@ def func2_int(a, b):
     return math.cos(a) - math.cos(b)
 
 
-def mc_integrate(func, a, b, n=10000):
+def mc_integrate(func, a, b, n=10000000):
     losowe_wartosci = np.random.uniform(a, b, n)
     y = [func(wartosc) for wartosc in losowe_wartosci]
     y_srednia = np.sum(y) / n
@@ -43,7 +43,7 @@ def mc_integrate(func, a, b, n=10000):
     return wynik
 
 
-def rectangle_integrate(func, a, b, n=10000):
+def rectangle_integrate(func, a, b, n=10000000):
     x = np.linspace(a, b, n)
     y = func(x)  # wysokosc kwadrata
     wynik = np.sum(y) * (b - a) / n  # suma wysokosci pomnozona przez szerokość

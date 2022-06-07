@@ -8,7 +8,7 @@ def projekcja(matrix_u, matrix_v):
     matrix_u_v = np.dot(matrix_u.T,matrix_v)
     matrix_u_u = np.dot(matrix_u.T,matrix_u)
     if matrix_u_u == 0:
-        return matrix_v
+        return matrix_u
     return (matrix_u_v/matrix_u_u)*matrix_u
 
 
