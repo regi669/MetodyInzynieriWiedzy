@@ -69,5 +69,5 @@ B_T_norm = normalizuj_wektory(B_T)
 print(czy_wektory_ortonormalne(B_T_norm))
 
 vector_stary = np.array([8,6,2,3,4,6,6,5])
-print(zmiana_bazy(I, B, vector_stary))
 vector_nowy = zmiana_bazy(I, B, vector_stary)
+print(vector_nowy)
